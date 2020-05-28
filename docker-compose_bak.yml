@@ -1,11 +1,11 @@
 version: "3"
 services:
-  fhirsecu:
+  hapi-fhir-jpaserver-start:
     build: .
-    container_name: fhirsecu
+    container_name: hapi-fhir-jpaserver-start
     restart: on-failure
     ports:
-      - "8888:8080"
+      - "8080:8080"
   hapi-fhir-mysql:
     image: mysql:latest
     container_name: hapi-fhir-mysql
@@ -19,4 +19,3 @@ services:
       - hapi-fhir-mysql:/var/lib/mysql
 volumes:
   hapi-fhir-mysql:
-
