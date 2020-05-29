@@ -6,6 +6,11 @@ services:
     restart: on-failure
     ports:
       - "8888:8080"
+      - "8443:8443"
+    volumes:
+      - ./ssl:/usr/local/tomcat/ssl
+      - ./server.xml:/usr/local/tomcat/conf/server.xml
+            #- ./tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
   hapi-fhir-mysql:
     image: mysql:latest
     container_name: hapi-fhir-mysql
